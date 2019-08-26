@@ -1,3 +1,5 @@
+let currentTime = Date.now();
+
 class Player {
     constructor (game){
         this.canvas = game.canvas;
@@ -23,8 +25,12 @@ class Player {
 
     jump () {
         this.y -= 70;
-        console.log('Jumped')
+        setTimeout(() => {
+            this.y += 70;
+          }, 300);
     }
+
+    
 
     throw () {
 
