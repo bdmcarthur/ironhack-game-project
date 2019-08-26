@@ -4,6 +4,7 @@ class Game {
         this.context = this.canvas.getContext('2d');
         this.player = new Player(this);
         this.background = new Background(this);
+        this.trash = new Trash(this);
         this.callbacks = {
             jump: () => this.player.jump(),
             throw: () => this.player.throw()
@@ -16,12 +17,12 @@ class Game {
     draw () {
         this.clear()
         this.background.draw();
-        this.player.draw(); 
+        this.player.draw();
     }
 
     start () {
         this.draw()
-        this.move()
+        this.update()
     }
 
     clear () {
@@ -30,10 +31,12 @@ class Game {
         this.context.clearRect(0, 0, width, height); 
       }
 
-      move () {
+      update () {
         setInterval(() => {
+            this.player.crashWith(trashArr);
             this.draw();
+            this.trash.update();
             this.background.x -= 10
-          }, 60)
+          }, 100)
       }
 }
