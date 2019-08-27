@@ -4,8 +4,7 @@ class Game {
         this.canvas = canvas;
         this.context = this.canvas.getContext('2d');
         this.player = new Player(this);
-        this.trash = new Trash(this);
-        this.rat = new Rat(this);
+        this.groundObstacles = new GroundObstacles(this);
         this.score = new Score(this);
         this.background = new Background(this);
         this.callbacks = {
@@ -22,7 +21,6 @@ class Game {
         this.background.draw()
         this.player.draw();
         this.score.draw();
-        this.rat.update(ratsArr);
     }
 
     start () {
@@ -38,10 +36,9 @@ class Game {
 
       update () {
         setInterval(() => {
-            this.player.crashWith(trashArr);
+            this.player.crashWith(groundObstaclesArr);
             this.draw();
-            
-            this.trash.update();
+            this.groundObstacles.update();
             this.background.ax -= 1;
             this.background.bx -= 1;
             this.background.cx -= 1;

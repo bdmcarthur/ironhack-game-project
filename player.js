@@ -61,7 +61,7 @@ class Player {
                 currentScore -= 10;
                 setTimeout(() => {
                      this.imageLink = 'images/sprite/Walk (1).png';
-                  }, 100);
+                  }, 200);
               }
           }
       }
