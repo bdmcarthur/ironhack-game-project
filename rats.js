@@ -1,41 +1,42 @@
-var trashArr = [];
+var ratsArr = [];
 var numCount = 0;
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-class Trash {
+class Rat{
     constructor (game){
         this.canvas = game.canvas;
         this.context = game.context;
         let width = canvas.width
         let height = canvas.height;
         this.x = width;
-        this.y = 340;
+        this.y = 375;
         this.vx = 1;    
     }
 
     draw () {
         const image = new Image();
-        image.src = 'images/trashBag.png';
+        image.src = 'images/rat1.png';
+        let imgWidth = image.width/8;
+        let imgHeight = image.height/8;
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, image.width/7, image.height/6)
+            context.drawImage(image, this.x, this.y, imgWidth, imgHeight)
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width/7, image.height/6)
+                context.drawImage(image, this.x, this.y, imgWidth, imgHeight)
             });  
           }       
     }
-    // && getRandomInt(4) === 3
-    update (arr){
-        if(numCount % 800 === 0){   
 
-          this.trash = new Trash(this);
-          trashArr.push(this.trash)
+    update (arr){
+        if(numCount === -1){   
+          this.rat = new Rat(this);
+          ratsArr.push(this.rat)
         }
         
-        for(let item of trashArr){
+        for(let item of ratsArr){
           item.x -= this.vx;
           item.draw();
           }
