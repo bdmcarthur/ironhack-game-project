@@ -13,6 +13,23 @@ class Game {
           };
           this.control = new Control(this.callbacks);
           this.control.setKeyBindings();
+        
+        this.move = setInterval(() => {
+        if(currentScore <= 0){
+            this.reset();
+        }
+            else{
+                this.player.crashWith(groundObstaclesArr);
+                this.draw();
+                this.groundObstacles.update();
+                this.background.ax -= 1;
+                this.background.bx -= 1;
+                this.background.cx -= 1;
+                this.background.dx -= 1;
+                frame += 1;
+            }  
+        }, 8)
+      
           
     }
 
@@ -23,9 +40,13 @@ class Game {
         this.score.draw();
     }
 
+    deadPlayer (){
+        this.player.draw(); 
+    }
+
     start () {
         this.draw()
-        this.update()
+      
     }
 
     clear () {
@@ -34,18 +55,11 @@ class Game {
         this.context.clearRect(0, 0, width, height); 
       }
 
-      update () {
-        setInterval(() => {
-            this.player.crashWith(groundObstaclesArr);
-            this.draw();
-            this.groundObstacles.update();
-            this.background.ax -= 1;
-            this.background.bx -= 1;
-            this.background.cx -= 1;
-            this.background.dx -= 1;
-            frame += 1;
-            
-          }, 8)
-      }
+    reset () {
+        clearInterval(this.move);
+        this.player.imageLink = 'images/sprite/Dead (15).png'
+        currentScore = 100;
+    
+    }  
 
 }

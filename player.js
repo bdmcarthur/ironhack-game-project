@@ -15,6 +15,10 @@ class Player {
     }
 
     draw () {
+        if(currentScore === 0){
+            this.imageLink = 'images/sprite/Dead (15).png'
+        }
+      
         if(count === 0){
             this.imageLink = 'images/sprite/Walk (1).png'; 
         }
@@ -25,7 +29,7 @@ class Player {
             this.imageLink = 'images/sprite/Walk (5).png';
             count = 0;    
         }
-        
+    
         const image = new Image();
         image.src = this.imageLink;
 
@@ -58,10 +62,10 @@ class Player {
               //
               if(item.x === 100 && this.y === 270){
                 this.imageLink ='images/sprite/Dead (1).png'
-                currentScore -= 10;
+                currentScore -= 20;
                 setTimeout(() => {
                      this.imageLink = 'images/sprite/Walk (1).png';
-                  }, 200);
+                  }, 10);
               }
           }
       }
