@@ -8,7 +8,7 @@ class Player {
         let height = canvas.height;
         // this.x = 70;
         // this.y = 270;
-         this.x = 70;
+        this.x = 70;
         this.y = 270;
         this.imageLink = 'images/sprite/Walk (1).png';
         // this.imageLink = 'images/sprite/sprite-walk.png';
@@ -18,10 +18,10 @@ class Player {
         if(count === 0){
             this.imageLink = 'images/sprite/Walk (1).png'; 
         }
-        else if(count === 4){
+        else if(count === 15){
             this.imageLink = 'images/sprite/Walk (3).png';    
         }
-        else if(count === 8){
+        else if(count === 30){
             this.imageLink = 'images/sprite/Walk (5).png';
             count = 0;    
         }
@@ -40,11 +40,13 @@ class Player {
         }
 
     jump () {
+        if(this.y !== 170){
         this.y -= 100;
         setTimeout(() => {
             this.y += 100;
             this.imageLink = 'images/sprite/Walk (1).png';;
-          }, 600);
+          }, 700);
+        }  
     }
 
     throw () {
@@ -54,11 +56,12 @@ class Player {
     crashWith (arr) {
           for(let item of arr){
               //
-              if((item.x === 60 || item.x === 110) && this.y === 270){
+              if(item.x === 100 && this.y === 270){
                 this.imageLink ='images/sprite/Dead (1).png'
+                currentScore -= 10;
                 setTimeout(() => {
                      this.imageLink = 'images/sprite/Walk (1).png';
-                  }, 200);
+                  }, 100);
               }
           }
       }

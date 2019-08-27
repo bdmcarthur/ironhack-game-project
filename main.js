@@ -6,5 +6,6 @@ const game = new Game(canvas);
 
 
 window.addEventListener('load', () => {
-    game.start();
+  // window.requestAnimationFrame(game.start);
+  game.start();
   });

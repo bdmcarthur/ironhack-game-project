@@ -12,7 +12,7 @@ class Trash {
         let height = canvas.height;
         this.x = width;
         this.y = 340;
-        this.vx = 3;    
+        this.vx = 1;    
     }
 
     draw () {
@@ -20,17 +20,17 @@ class Trash {
         image.src = 'images/trashBag.png';
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, image.width/7, image.height/7)
+            context.drawImage(image, this.x, this.y, image.width/7, image.height/6)
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width/7, image.height/7)
+                context.drawImage(image, this.x, this.y, image.width/7, image.height/6)
             });  
           }       
     }
 
     update (arr){
-        if(numCount % 120 === 0 ){
-            //&& getRandomInt(5) === 3
+        if(numCount % 80 === 0 && getRandomInt(4) === 3){
+            
           this.trash = new Trash(this);
           trashArr.push(this.trash)
         }
