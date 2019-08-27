@@ -10,15 +10,16 @@ class Background {
 
     draw () {
         const image = new Image();
-        image.src = 'images/city.png'
+        image.src = 'images/cityBack.png'
+        let imgWidth = image.width/8;
+        let imgHeight = image.height/8;
 
         if (image.complete) {
-        
-            context.drawImage(image, this.x, 0, image.width, image.height)
+            context.drawImage(image, this.x, 0, imgWidth, imgHeight)
 
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, 0, image.width, image.height)
+                context.drawImage(image, this.x, 0, imgWidth, imgHeight)
             });  
           }
     }
