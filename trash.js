@@ -12,7 +12,7 @@ class Trash {
         let height = canvas.height;
         this.x = width;
         this.y = 340;
-        this.vx = 10;    
+        this.vx = 3;    
     }
 
     draw () {
@@ -28,11 +28,11 @@ class Trash {
           }       
     }
 
-    update (){
-        if(numCount >= 30 && getRandomInt(12) === 3){
+    update (arr){
+        if(numCount % 120 === 0 ){
+            //&& getRandomInt(5) === 3
           this.trash = new Trash(this);
           trashArr.push(this.trash)
-          numCount = 0;
         }
         
         for(let item of trashArr){

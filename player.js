@@ -18,10 +18,10 @@ class Player {
         if(count === 0){
             this.imageLink = 'images/sprite/Walk (1).png'; 
         }
-        else if(count === 2){
+        else if(count === 4){
             this.imageLink = 'images/sprite/Walk (3).png';    
         }
-        else if(count === 4){
+        else if(count === 8){
             this.imageLink = 'images/sprite/Walk (5).png';
             count = 0;    
         }

@@ -6,11 +6,8 @@ class Game {
         this.background = new Background(this);
         this.trash = new Trash(this);
         this.callbacks = {
-            jump: () => {
-                this.player.jump();
-                this.player.imageLink = 'images/sprite/Jump (6).png';
-            }
-
+            jump: () => this.player.jump(),
+            throw: () => this.player.throw()
           };
           this.control = new Control(this.callbacks);
           this.control.setKeyBindings();
@@ -39,9 +36,7 @@ class Game {
             this.player.crashWith(trashArr);
             this.draw();
             this.trash.update();
-         
-            // if(this.background.x === 4618){}
-            this.background.x -= 10
-          }, 200)
+            this.background.x -= 3;
+          }, 30)
       }
 }
