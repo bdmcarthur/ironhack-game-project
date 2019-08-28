@@ -22,15 +22,25 @@ class Background {
             context.drawImage(image, this.bx, 0, imgWidth, imgHeight)
             context.drawImage(image, this.cx, 0, imgWidth, imgHeight)
             context.drawImage(image, this.dx, 0, imgWidth, imgHeight)
-          } else {
+        } 
+        else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.ax, 0, imgWidth, imgHeight)
-                context.drawImage(image, this.bx, 0, imgWidth, imgHeight)
-                context.drawImage(image, this.cx, 0, imgWidth, imgHeight)
-                context.drawImage(image, this.dx, 0, imgWidth, imgHeight)
+            context.drawImage(image, this.ax, 0, imgWidth, imgHeight)
+            context.drawImage(image, this.bx, 0, imgWidth, imgHeight)
+            context.drawImage(image, this.cx, 0, imgWidth, imgHeight)
+            context.drawImage(image, this.dx, 0, imgWidth, imgHeight)
             });  
-          }      
         }
+        this.update();
+    }
+
+    update () {
+        this.ax -= 3;
+        this.bx -= 3;
+        this.cx -= 3;
+        this.dx -= 3;
+    }
+
 
     
 

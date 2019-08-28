@@ -40,6 +40,7 @@ class Player {
                 context.drawImage(image, this.x, this.y, image.width/4, image.height/4)
             });  
           }
+          
           count += 1
         }
 
@@ -61,7 +62,6 @@ class Player {
 
     crashWith (arr) {
           for(let item of arr){
-              //
               if(item.x === 100 && this.y === 270){
                 this.imageLink ='images/sprite/Dead (1).png'
                 currentScore -= 50;
@@ -70,5 +70,6 @@ class Player {
                   }, 10);
               }
           }
+          this.draw()
       }
 }

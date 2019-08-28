@@ -31,7 +31,7 @@ class GroundObstacles {
     }
     // 
     update (arr){
-        if(numCount % 200 === 0 && getRandomInt(3) === 2){   
+        if(numCount % 50 === 0 && getRandomInt(3) === 2){   
 
           if(getRandomInt(2) === 1){
           this.groundObstacles = new GroundObstacles(this);
@@ -68,6 +68,7 @@ class GroundObstacles {
           }
           
         }
+          this.draw()
           numCount += 1;
       }
 }

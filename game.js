@@ -19,17 +19,14 @@ class Game {
         this.clear();
         this.background.draw()
         this.player.draw();
+        this.groundObstacles.update();
+        this.player.crashWith(groundObstaclesArr);
         this.score.draw();
-    }
-
-    deadPlayer (){
-        this.player.draw(); 
     }
 
     start () {
         this.draw()
         this.loop()
-      
     }
 
     clear () {
@@ -40,24 +37,17 @@ class Game {
 
     reset () {
         window.cancelAnimationFrame(loop)
-        this.player.imageLink = 'images/sprite/Dead (15).png';
-        // this.deadPlayer();
         currentScore = 100;
-    
+        frame = 0;
     }
     
     loop () {
         if(currentScore <= 0){
+            this.draw();
             this.reset();
         }
-        this.player.crashWith(groundObstaclesArr);
         this.draw();
-        this.groundObstacles.update();
-        this.background.ax -= 2;
-        this.background.bx -= 2;
-        this.background.cx -= 2;
-        this.background.dx -= 2;
-        frame += 13
+        frame += 1
         window.requestAnimationFrame(() => this.loop());
     }
 
