@@ -11,7 +11,7 @@ class GroundObstacles {
         let height = canvas.height;
         this.x = width;
         this.y = 320;
-        this.vx = 3; 
+        this.speed = 3; 
         this.imageTitle = 'images/trashBag.png' 
         
     }
@@ -57,12 +57,12 @@ class GroundObstacles {
           }
 
           if(item.imageTitle === 'images/rat2.png' || item.imageTitle === 'images/rat1.png'){
-            item.x -= this.vx * 2;
+            item.x -= this.speed * 2;
             item.draw();
           }
 
           else {
-            item.x -= this.vx;
+            item.x -= this.speed;
             item.draw();
           }
         }

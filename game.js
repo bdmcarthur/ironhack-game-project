@@ -7,6 +7,7 @@ class Game {
         this.groundObstacles = new GroundObstacles(this);
         this.score = new Score(this);
         this.background = new Background(this);
+        this.gameOver = new GameOver(this);
         this.callbacks = {
             jump: () => this.player.jump(),
             throw: () => this.player.throw()
@@ -39,19 +40,36 @@ class Game {
         this.player.crashWith(groundObstaclesArr);
     } 
 
-    reset () {
-        currentScore = 100;
-        frame = 0;
-        obstaclesArr = [];
-    }
+    // reset () {
+    //     currentScore = 100;
+    //     frame = 0;
+    //     obstaclesArr = [];
+    // }
 
     lose () {
-        if(currentScore <= 0){
-            this.reset();
-        }
+        this.background.speed = 0;
+        this.groundObstacles.speed = 0;
+    }
+
+    win () {
+        this.player.x += this.player.speed;    
+        setTimeout(() => {
+        this.player.x += this.player.speed; 
+        this.groundObstacles.speed = 0;
+        this.background.speed = 0;
+        this.player.imageLink = 'images/sprite/Idle (14).png';
+        }, 900);
+        console.log(this.player.x)
+        
     }
     
     loop () {
+        if(currentScore <= 0){
+            this.lose();
+        }
+        if(this.background.dx === -1200){
+            this.win();
+        }
         frame += 1;
         this.draw();
         this.update();

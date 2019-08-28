@@ -6,11 +6,10 @@ const game = new Game(canvas);
 
 
 window.addEventListener('load', () => {
-  // window.requestAnimationFrame(game.start);
   game.start();
   });
 
-  // document.getElementById("start-button").onclick = function() {
-  //   game.start();
-  // };
+  document.getElementById("start-button").onclick = function() {
+    game.start();
+  };
 

@@ -8,10 +8,12 @@ class Background {
         this.bx = 2210;
         this.cx = 2210*2;
         this.dx = 2210*3;
+        this.speed = 3
 
     }
 
-    draw () {   
+    draw () {
+      
         const image = new Image();
         image.src = 'images/cityFinal.svg'
         let imgWidth = image.width/3.3;
@@ -35,12 +37,13 @@ class Background {
     }
 
     update () {
-        this.ax -= 3;
-        this.bx -= 3;
-        this.cx -= 3;
-        this.dx -= 3;
+        this.ax -= this.speed;
+        this.bx -= this.speed;
+        this.cx -= this.speed;
+        this.dx -= this.speed;
     }
 
+    
 
     
 
