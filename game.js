@@ -12,15 +12,14 @@ class Game {
             throw: () => this.player.throw()
           };
           this.control = new Control(this.callbacks);
-          this.control.setKeyBindings();       
+          this.control.setKeyBindings();   
+          this.animationID     
     }
 
     draw () {
         this.clear();
         this.background.draw()
         this.player.draw();
-        this.groundObstacles.update();
-        this.player.crashWith(groundObstaclesArr);
         this.score.draw();
     }
 
@@ -35,19 +34,27 @@ class Game {
         this.context.clearRect(0, 0, width, height); 
       }
 
+    update () {
+        this.groundObstacles.update();
+        this.player.crashWith(groundObstaclesArr);
+    } 
+
     reset () {
-        window.cancelAnimationFrame(loop)
         currentScore = 100;
         frame = 0;
+        obstaclesArr = [];
+    }
+
+    lose () {
+        if(currentScore <= 0){
+            this.reset();
+        }
     }
     
     loop () {
-        if(currentScore <= 0){
-            this.draw();
-            this.reset();
-        }
+        frame += 1;
         this.draw();
-        frame += 1
+        this.update();
         window.requestAnimationFrame(() => this.loop());
     }
 

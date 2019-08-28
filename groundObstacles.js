@@ -1,5 +1,4 @@
 var groundObstaclesArr = [];
-var numCount = 0;
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -31,7 +30,7 @@ class GroundObstacles {
     }
     // 
     update (arr){
-        if(numCount % 50 === 0 && getRandomInt(3) === 2){   
+        if(frame % 50 === 0 && getRandomInt(3) === 2){   
 
           if(getRandomInt(2) === 1){
           this.groundObstacles = new GroundObstacles(this);
@@ -48,7 +47,7 @@ class GroundObstacles {
         }
         
         for(let item of groundObstaclesArr){  
-          if(numCount % 50 === 0){
+          if(frame % 150 === 0){
               if(item.imageTitle === 'images/rat1.png'){
                 item.imageTitle = 'images/rat2.png'
               }
@@ -66,9 +65,7 @@ class GroundObstacles {
             item.x -= this.vx;
             item.draw();
           }
-          
         }
           this.draw()
-          numCount += 1;
       }
 }
