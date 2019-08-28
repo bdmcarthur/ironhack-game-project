@@ -5,9 +5,9 @@ var height = canvas.height;
 const game = new Game(canvas);
 
 
-window.addEventListener('load', () => {
-  game.start();
-  });
+// window.addEventListener('load', () => {
+//   game.start();
+//   });
 
   document.getElementById("start-button").onclick = function() {
     game.start();

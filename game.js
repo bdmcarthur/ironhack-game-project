@@ -7,7 +7,6 @@ class Game {
         this.groundObstacles = new GroundObstacles(this);
         this.score = new Score(this);
         this.background = new Background(this);
-        this.gameOver = new GameOver(this);
         this.callbacks = {
             jump: () => this.player.jump(),
             throw: () => this.player.throw()
@@ -52,22 +51,22 @@ class Game {
     }
 
     win () {
-        this.player.x += this.player.speed;    
-        setTimeout(() => {
-        this.player.x += this.player.speed; 
-        this.groundObstacles.speed = 0;
+        this.player.x += this.player.speed;
         this.background.speed = 0;
-        this.player.imageLink = 'images/sprite/Idle (14).png';
-        }, 900);
-        console.log(this.player.x)
-        
+        this.groundObstacles.speed = 0;    
+        setTimeout(() => {
+            this.player.speed = 0;
+            this.player.imageLink = 'images/sprite/Idle (14).png';
+            this.groundObstacles.imageLink = 'images/sprite/rat1.png';
+        }, 800);        
     }
     
     loop () {
+        console.log(this.background.dx)
         if(currentScore <= 0){
             this.lose();
         }
-        if(this.background.dx === -1200){
+        if(this.background.dx === -1202){
             this.win();
         }
         frame += 1;

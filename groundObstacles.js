@@ -11,7 +11,7 @@ class GroundObstacles {
         let height = canvas.height;
         this.x = width;
         this.y = 320;
-        this.speed = 3; 
+        this.speed = 4; 
         this.imageTitle = 'images/trashBag.png' 
         
     }
@@ -47,7 +47,7 @@ class GroundObstacles {
         }
         
         for(let item of groundObstaclesArr){  
-          if(frame % 150 === 0){
+          if(frame % 50 === 0){
               if(item.imageTitle === 'images/rat1.png'){
                 item.imageTitle = 'images/rat2.png'
               }
@@ -57,7 +57,7 @@ class GroundObstacles {
           }
 
           if(item.imageTitle === 'images/rat2.png' || item.imageTitle === 'images/rat1.png'){
-            item.x -= this.speed * 2;
+            item.x -= this.speed * 1.5;
             item.draw();
           }
 
