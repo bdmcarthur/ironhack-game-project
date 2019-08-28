@@ -5,16 +5,17 @@ class Background {
         let width = canvas.width
         let height = canvas.height;
         this.ax = 0;
-        this.bx = 2024;
-        this.cx = 4048;
-        this.dx = 6072;
+        this.bx = 2210;
+        this.cx = 2210*2;
+        this.dx = 2210*3;
+
     }
 
     draw () {   
         const image = new Image();
-        image.src = 'images/cityBack.png'
-        let imgWidth = image.width/8;
-        let imgHeight = image.height/8;
+        image.src = 'images/cityFinal.svg'
+        let imgWidth = image.width/3.3;
+        let imgHeight = image.height/3.3;
 
         if (image.complete) {
             context.drawImage(image, this.ax, 0, imgWidth, imgHeight)
@@ -30,6 +31,8 @@ class Background {
             });  
           }      
         }
+
+    
 
 }
 

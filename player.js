@@ -45,10 +45,12 @@ class Player {
 
     jump () {
         if(this.y !== 170){
+            this.imageLink = 'images/sprite/Jump (5).png';
         this.y -= 100;
+        
         setTimeout(() => {
             this.y += 100;
-            this.imageLink = 'images/sprite/Walk (1).png';;
+            this.imageLink = 'images/sprite/Walk (1).png';
           }, 700);
         }  
     }
@@ -62,7 +64,7 @@ class Player {
               //
               if(item.x === 100 && this.y === 270){
                 this.imageLink ='images/sprite/Dead (1).png'
-                currentScore -= 20;
+                currentScore -= 50;
                 setTimeout(() => {
                      this.imageLink = 'images/sprite/Walk (1).png';
                   }, 10);

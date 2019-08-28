@@ -1,6 +1,5 @@
 var groundObstaclesArr = [];
 var numCount = 0;
-var switchNum = 0;
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -12,8 +11,8 @@ class GroundObstacles {
         let width = canvas.width
         let height = canvas.height;
         this.x = width;
-        this.y = 340;
-        this.vx = 1; 
+        this.y = 320;
+        this.vx = 3; 
         this.imageTitle = 'images/trashBag.png' 
         
     }
@@ -23,33 +22,28 @@ class GroundObstacles {
         image.src = this.imageTitle;
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, image.width/7, image.height/6)
+            context.drawImage(image, this.x, this.y, image.width/19, image.height/21)
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width/7, image.height/6)
+                context.drawImage(image, this.x, this.y, image.width/19, image.height/21)
             });  
           }       
     }
     // 
     update (arr){
-        if(numCount % 100 === 0 && getRandomInt(3) === 2){   
+        if(numCount % 200 === 0 && getRandomInt(3) === 2){   
 
           if(getRandomInt(2) === 1){
           this.groundObstacles = new GroundObstacles(this);
           groundObstaclesArr.push(this.groundObstacles)
           this.groundObstacles.imageTitle = 'images/trashBag.png' 
-          switchNum = 1;
           }
 
           else {
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
             this.groundObstacles.imageTitle = 'images/rat1.png' 
-            this.groundObstacles.y = 370;
-           
-            switchNum = 1;
-            
-            switchNum = 1;
+            this.groundObstacles.y = 370;  
           }
         }
         
