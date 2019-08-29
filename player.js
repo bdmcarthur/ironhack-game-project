@@ -65,17 +65,29 @@ class Player {
         if(this.y !== 170){
             this.imageLink = 'images/sprite/Jump (7).png';
             this.y -= 100;
-        }  
+        }
+        console.log(pizzaArr[0].y + 'pizza Y', pizzaArr[0].x + 'pizza X' )
+        console.log(this.x, this.y + 'player X, Y') 
     }
 
-    crashWith (arr) {
+    crashWithObstacles (arr) {
           for(let item of arr){   
               if(item.x > 95 && item.x < 115 && this.y === 270 && currentScore > 0){
                 this.imageLink ='images/sprite/Dead (5).png'
-                    currentScore -= 0;
+                    currentScore -= 10;
               }
           }
           this.draw()
       }
+
+      crashWithPizza(arr) {
+        for(let item of arr){ 
+            if((item.y === 170 && item.x <140 && item.x>102) && this.y === 170){
+                  currentScore += 10;
+                  item.y = -50;     
+            }
+        }
+        this.draw()
+    }
 
 }

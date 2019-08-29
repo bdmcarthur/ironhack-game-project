@@ -13,7 +13,6 @@ class GroundObstacles {
         this.y = 320;
         this.speed = level * speed; 
         this.imageTitle = 'images/trashBagSet.png' 
-        
     }
 
     draw () {
@@ -29,7 +28,7 @@ class GroundObstacles {
           }       
     }
     // 
-    update (arr){
+    update (){
         if(frame % 40 === 0 && getRandomInt(2) ===1){   
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
@@ -64,6 +63,6 @@ class GroundObstacles {
             item.draw();
           }
         }
-          this.draw()
+         
       }
 }

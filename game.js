@@ -10,6 +10,7 @@ class Game {
         this.context = this.canvas.getContext('2d');
         this.player = new Player(this);
         this.groundObstacles = new GroundObstacles(this);
+        this.pizza = new Pizza(this);
         this.score = new Score(this);
         this.background = new Background(this);
         this.speed = 4;
@@ -43,7 +44,9 @@ class Game {
 
     update () {
         this.groundObstacles.update();
-        this.player.crashWith(groundObstaclesArr);
+        this.pizza.update();
+        this.player.crashWithObstacles(groundObstaclesArr);
+        this.player.crashWithPizza(pizzaArr);
     } 
 
     resetLevel() {
@@ -83,7 +86,7 @@ class Game {
         if(currentScore === 0){
             this.lose();     
         }
-        console.log(speed + ' speed')
+
         if(this.background.dx < -1155 && this.background.dx > -1210){
             this.win();     
         }
