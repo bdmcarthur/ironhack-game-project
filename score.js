@@ -2,6 +2,7 @@ let currentScore = 100;
 class Score {
         constructor (game) {
           this.game = game;
+          this.color = '#00FFFF'
         }
       
         draw () {
@@ -13,8 +14,7 @@ class Score {
           context.beginPath();
           context.ellipse(80, -15, 50, 125, Math.PI / 2, 0, 2 * Math.PI);
           context.fill();
-          // context.fillRect(-20, -50, 220, 70);
-          context.fillStyle = '#00FFFF'
+          context.fillStyle = this.color;
           context.fillText(`Life ${ parseInt(currentScore) }`, 0, 0);
           context.restore();
         }

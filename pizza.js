@@ -32,8 +32,7 @@ class Pizza {
         
         if(frame % 300 === 0){ 
             this.pizza = new Pizza(this);
-            pizzaArr.push(this.pizza)
-            
+            pizzaArr.push(this.pizza)   
         }
 
         for(let item of pizzaArr){    

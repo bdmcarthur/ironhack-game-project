@@ -4,12 +4,13 @@ let accel = 1;
 let speed = 3 + accel;
 let gameBeingPlayed = true;
 let level1Complete = true;
+
 class Game {
     constructor (canvas) {
         this.canvas = canvas;
         this.context = this.canvas.getContext('2d');
         this.player = new Player(this);
-        this.groundObstacles = new GroundObstacles(this);
+        this.groundObstacles = new GroundObstacles(this, speed);
         this.pizza = new Pizza(this);
         this.score = new Score(this);
         this.background = new Background(this);
@@ -53,6 +54,7 @@ class Game {
         frame = 0;
         currentScore = 100;  
         groundObstaclesArr = [];
+        groundObstaclesArr = [];
         this.background = new Background(this);
         this.player = new Player(this);
         tempSpriteCount = 0;
@@ -82,6 +84,7 @@ class Game {
     }
     
     loop () {
+        console.log(speed + 'general speed')
         if(gameBeingPlayed === true){
         if(currentScore === 0){
             this.lose();     

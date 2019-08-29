@@ -4,15 +4,15 @@ function getRandomInt(max) {
   }
 
 class GroundObstacles {
-    constructor (game){
+    constructor (game, speed){
         this.canvas = game.canvas;
         this.context = game.context;
         let width = canvas.width
         let height = canvas.height;
         this.x = width;
         this.y = 320;
-        this.speed = level * speed; 
-        this.imageTitle = 'images/trashBagSet.png' 
+        this.imageTitle = 'images/trashBagSet.png'
+        this.itemDamage = 10; 
     }
 
     draw () {
@@ -29,14 +29,14 @@ class GroundObstacles {
     }
     // 
     update (){
-        if(frame % 40 === 0 && getRandomInt(2) ===1){   
+        if(frame % 40 === 0 && getRandomInt(3) ===1){   
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
             this.groundObstacles.imageTitle = 'images/rat1.png' 
             this.groundObstacles.y = 370; 
         }
 
-        else if(frame % 40 === 0 && getRandomInt(2) ===1) {
+        else if(frame % 60 === 0 && getRandomInt(3) ===1) {
           this.groundObstacles = new GroundObstacles(this);
           groundObstaclesArr.push(this.groundObstacles)
           this.groundObstacles.imageTitle = 'images/trashBagSet.png' 

@@ -3,15 +3,16 @@ let tempDeadCount = 0;
 let tempJumpCount = 0;
 
 class Player {
-    constructor (game){
+    constructor (game, score){
         this.canvas = game.canvas;
         this.context = game.context;
         let width = canvas.width
         let height = canvas.height;
         this.x = 70;
         this.y = 270;
-        this.speed = 6;
+        this.speed = speed;
         this.imageLink = 'images/sprite/Walk (1).png'
+        
     }
 
     draw () {
@@ -62,19 +63,20 @@ class Player {
         }
 
     jump () {
+        console.log(groundObstaclesArr[0].x)
         if(this.y !== 170){
             this.imageLink = 'images/sprite/Jump (7).png';
             this.y -= 100;
         }
-        console.log(pizzaArr[0].y + 'pizza Y', pizzaArr[0].x + 'pizza X' )
-        console.log(this.x, this.y + 'player X, Y') 
     }
 
     crashWithObstacles (arr) {
+        
           for(let item of arr){   
-              if(item.x > 95 && item.x < 115 && this.y === 270 && currentScore > 0){
+              if(item.x > 50 && item.x < 108 && this.y === 270 && currentScore > 0){
                 this.imageLink ='images/sprite/Dead (5).png'
-                    currentScore -= 10;
+                    currentScore -= item.itemDamage;
+                    item.itemDamage = 0;        
               }
           }
           this.draw()
@@ -84,10 +86,9 @@ class Player {
         for(let item of arr){ 
             if((item.y === 170 && item.x <140 && item.x>102) && this.y === 170){
                   currentScore += 10;
-                  item.y = -50;     
+                  item.y = -50;  
             }
         }
-        this.draw()
+        this.draw();
     }
-
 }
