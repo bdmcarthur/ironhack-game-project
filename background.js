@@ -8,14 +8,14 @@ class Background {
         this.bx = 2210;
         this.cx = 2210*2;
         this.dx = 2210*3;
-        this.imageLink = 'images/cityFinal.svg'
+        this.imageLink = 'images/cityFinal.png'
     }
 
     draw () {
         const image = new Image();
         image.src = this.imageLink;
-        let imgWidth = image.width/3.3;
-        let imgHeight = image.height/3.3;
+        let imgWidth = image.width;
+        let imgHeight = image.height;
 
         if (image.complete) {
             context.drawImage(image, this.ax, 0, imgWidth, imgHeight)

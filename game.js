@@ -7,7 +7,7 @@ let level1Complete = true;
 const SOUNDS = {
     background: "sounds/background.wav",
     hit: "sounds/hit.mp3",
-    pizza: "sounds/pizza.mp3"
+    donut: "sounds/donut.mp3"
   };
 
 
@@ -19,7 +19,7 @@ class Game {
         this.sound.loadSounds(SOUNDS, this);
         this.player = new Player(this);
         this.groundObstacles = new GroundObstacles(this, speed);
-        this.pizza = new Pizza(this);
+        this.donut = new Donut(this);
         this.score = new Score(this);
         this.background = new Background(this);
         this.speed = 4;
@@ -52,9 +52,9 @@ class Game {
 
     update () {
         this.groundObstacles.update();
-        this.pizza.update();
+        this.donut.update();
         this.player.crashWithObstacles(groundObstaclesArr);
-        this.player.crashWithPizza(pizzaArr);
+        this.player.crashWithDonut(donutArr);
     } 
 
     resetLevel() {
@@ -72,7 +72,6 @@ class Game {
     lose () {
         gameBeingPlayed = false;
         speed = 0;
-        this.player.imageLink = 'images/sprite/Idle (14).png';
         this.groundObstacles.imageLink = 'images/sprite/rat3.png';
         gameover.style.display = "flex"; 
     }
@@ -85,7 +84,6 @@ class Game {
         else{
         gameBeingPlayed = false;
         speed = 0;
-        this.player.imageLink = 'images/sprite/Idle (14).png';
         this.groundObstacles.imageLink = 'images/sprite/rat3.png';
         levelDiv.style.display = "flex";
         }

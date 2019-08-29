@@ -21,7 +21,7 @@ class Player {
             this.imageLink = 'images/sprite/Dead (15).png'
         }
         else {
-            if(this.imageLink === 'images/sprite/Jump (7).png'){
+            if(this.imageLink === 'images/sprite/Jump (10).png'){
                 tempJumpCount += 1;   
                 if(tempJumpCount >= 50){
                     this.y += 100;
@@ -55,10 +55,10 @@ class Player {
         image.src = this.imageLink;
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, (image.width/4), image.height/4)
+            context.drawImage(image, this.x, this.y, (image.width), image.height)
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width/4, image.height/4)
+                context.drawImage(image, this.x, this.y, image.width, image.height)
             });  
           }
         }
@@ -66,7 +66,7 @@ class Player {
     jump () {
         console.log(groundObstaclesArr[0].x)
         if(this.y !== 170){
-            this.imageLink = 'images/sprite/Jump (7).png';
+            this.imageLink = 'images/sprite/Jump (10).png';
             this.y -= 100;
         }
     }
@@ -74,7 +74,7 @@ class Player {
     crashWithObstacles (arr) {
         
           for(let item of arr){   
-              if(item.x > 50 && item.x < 108 && this.y === 270 && currentScore > 0){
+              if(item.x > 50 && item.x < 100 && this.y === 270 && currentScore > 0){
                 this.imageLink ='images/sprite/Dead (5).png'
                 this.sound.play('hit', { volume: 0.5 })
                     currentScore -= item.itemDamage;
@@ -84,12 +84,12 @@ class Player {
           this.draw()
       }
 
-      crashWithPizza(arr) {
+      crashWithDonut(arr) {
         for(let item of arr){ 
             if((item.y === 170 && item.x <140 && item.x>102) && this.y === 170){
                   currentScore += 10;
-                  this.sound.play('pizza', { volume: 0.5 })
-                  item.y = -50;  
+                  this.sound.play('donut', { volume: 0.5 })
+                  item.y = -200;  
             }
         }
         this.draw();

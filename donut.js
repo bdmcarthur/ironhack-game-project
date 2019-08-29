@@ -1,9 +1,9 @@
-var pizzaArr = [];
+var donutArr = [];
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-class Pizza {
+class Donut {
     constructor (game){
         this.canvas = game.canvas;
         this.context = game.context;
@@ -12,7 +12,7 @@ class Pizza {
         this.x = width;
         this.y = 170;
         this.speed = level * speed; 
-        this.imageTitle = 'images/pizza.png' 
+        this.imageTitle = 'images/donut.png' 
     }
 
     draw () {
@@ -20,10 +20,10 @@ class Pizza {
         image.src = this.imageTitle;
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, image.width/5, image.height/5)
+            context.drawImage(image, this.x, this.y, image.width, image.height)
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width/5, image.height/5)
+                context.drawImage(image, this.x, this.y, image.width, image.height)
             });  
           }       
     }
@@ -31,11 +31,11 @@ class Pizza {
     update (){
         
         if(frame % 300 === 0){ 
-            this.pizza = new Pizza(this);
-            pizzaArr.push(this.pizza)   
+            this.donut = new Donut(this);
+            donutArr.push(this.donut)   
         }
 
-        for(let item of pizzaArr){    
+        for(let item of donutArr){    
             item.x -= speed;
             item.draw();   
         }
