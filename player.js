@@ -6,6 +6,7 @@ class Player {
     constructor (game, score){
         this.canvas = game.canvas;
         this.context = game.context;
+        this.sound = game.sound;
         let width = canvas.width
         let height = canvas.height;
         this.x = 70;
@@ -75,6 +76,7 @@ class Player {
           for(let item of arr){   
               if(item.x > 50 && item.x < 108 && this.y === 270 && currentScore > 0){
                 this.imageLink ='images/sprite/Dead (5).png'
+                this.sound.play('hit', { volume: 0.5 })
                     currentScore -= item.itemDamage;
                     item.itemDamage = 0;        
               }
@@ -86,6 +88,7 @@ class Player {
         for(let item of arr){ 
             if((item.y === 170 && item.x <140 && item.x>102) && this.y === 170){
                   currentScore += 10;
+                  this.sound.play('pizza', { volume: 0.5 })
                   item.y = -50;  
             }
         }

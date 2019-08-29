@@ -4,11 +4,19 @@ let accel = 1;
 let speed = 3 + accel;
 let gameBeingPlayed = true;
 let level1Complete = true;
+const SOUNDS = {
+    background: "sounds/background.wav",
+    hit: "sounds/hit.mp3",
+    pizza: "sounds/pizza.mp3"
+  };
+
 
 class Game {
     constructor (canvas) {
         this.canvas = canvas;
         this.context = this.canvas.getContext('2d');
+        this.sound = new Sound();
+        this.sound.loadSounds(SOUNDS, this);
         this.player = new Player(this);
         this.groundObstacles = new GroundObstacles(this, speed);
         this.pizza = new Pizza(this);
@@ -20,9 +28,9 @@ class Game {
             jump: () => this.player.jump(),
             throw: () => this.player.throw()
           };
-          this.control = new Control(this.callbacks);
-          this.control.setKeyBindings();   
-          this.animationID     
+        this.control = new Control(this.callbacks);
+        this.control.setKeyBindings();   
+    
     }
 
     draw () {
@@ -84,7 +92,7 @@ class Game {
     }
     
     loop () {
-        console.log(speed + 'general speed')
+        this.sound.play('background', { volume: 0.2 })
         if(gameBeingPlayed === true){
         if(currentScore === 0){
             this.lose();     

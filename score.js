@@ -10,11 +10,15 @@ class Score {
           context.save();
           context.translate(750, 80);
           context.font = '45px Fredoka One';
-          context.fillStyle = '#F0FAFA'
+          context.fillStyle = '#00FFFF'
           context.beginPath();
-          context.ellipse(80, -15, 50, 125, Math.PI / 2, 0, 2 * Math.PI);
+          context.ellipse(80, -15, 60, 115, Math.PI / 2, 0, 2 * Math.PI);
           context.fill();
-          context.fillStyle = this.color;
+          context.beginPath();
+          context.fillStyle = 'white'
+          context.ellipse(80, -15, 56, 111, Math.PI / 2, 0, 2 * Math.PI);
+          context.fill();
+          context.fillStyle = '#00FFFF';
           context.fillText(`Life ${ parseInt(currentScore) }`, 0, 0);
           context.restore();
         }
