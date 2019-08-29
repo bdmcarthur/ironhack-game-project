@@ -19,8 +19,8 @@ body {
     right: 202px;
     width: 1000px;
     height: 500px;
-    background-color: #48EEEE;
-    background-image: url('images/cityFinal.svg');
+    background-color: #87F0F0;
+    background-image: url('images/cityFinalStart.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right 50% bottom -24%;
@@ -30,18 +30,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 40px -10px 20px;
+    margin: 20px 40px -20px 20px;
 }
 
 button {
     font-family: 'Fredoka One', cursive;
     font-size: .7em;
-    color: #48EEEE;
+    color: #00FFFF;
     width: 90px;
     height: 50px;
     border: 1px white solid;
     border-radius: 12px;
-    margin-top: -5px;
+    padding: 5px;
 }
 
 p {
@@ -60,28 +60,57 @@ p {
     width: 45%;
 }
 
-#start-cloud, #level-cloud {
+#start-cloud, #level-cloud, #gameover-cloud {
     width: 475px;
     flex: 100%;
 }
 
-#level {
+#level, #gameover{
     display: none;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 140px;
+    top: 180px;
     right: 450px;
     margin: 0 auto;
 }
 
-#level-button {
+#level-button, #gameover-button {
     flex: 100%;
     width: 200px;
-    height: 40px;
-    font-size: 2em;
+    height: 80px;
+    font-size: 1.25em;
     margin: 20px;
 }
 
+#level-button {
+  color: #FF8669;
+  background-color: white;
+  border: none;
+}
+
+#gameover-button {
+    background-color:white;
+    color: #AA9401;
+    border: none;
+  }
+
+#win-game img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#win-game {
+    display: none;
+    width: 100%;
+    margin-top: 100px;
+    background-color: #00FFFA;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0 auto;
+    
+}

@@ -1,8 +1,9 @@
 let frame = 0;
 let level = 1;
-let accel = 0;
-let speed = 4 + accel;
+let accel = 1;
+let speed = 3 + accel;
 let gameBeingPlayed = true;
+let level1Complete = true;
 class Game {
     constructor (canvas) {
         this.canvas = canvas;
@@ -51,43 +52,30 @@ class Game {
         groundObstaclesArr = [];
         this.background = new Background(this);
         this.player = new Player(this);
-        let tempSpriteCount = 0;
-        let tempDeadCount = 0;
-        let tempJumpCount = 0;   
+        tempSpriteCount = 0;
+        tempDeadCount = 0;
+        tempJumpCount = 0;   
     }
-
-
 
     lose () {
         gameBeingPlayed = false;
         speed = 0;
         this.player.imageLink = 'images/sprite/Idle (14).png';
         this.groundObstacles.imageLink = 'images/sprite/rat3.png';
-        setTimeout(() => {
-            this.resetLevel()
-            level = 1;
-            accel = 1;
-            speed = 4; 
-            gameBeingPlayed = true; 
-            this.loop();
-            }, 1000);  
+        gameover.style.display = "flex"; 
     }
 
     win () {
+        if(level === 3){
+        winGame.style.display = "block";    
+        }
+        else{
         gameBeingPlayed = false;
         speed = 0;
         this.player.imageLink = 'images/sprite/Idle (14).png';
         this.groundObstacles.imageLink = 'images/sprite/rat3.png';
         levelDiv.style.display = "flex";
-        // setTimeout(() => {
-        //     this.resetLevel()
-        //     level += 1;
-        //     accel += 1;
-        //     speed = 4 + accel
-        //     gameBeingPlayed = true;
-        //     this.loop();
-        //     }, 1000);   
-
+        }
     }
     
     loop () {
@@ -95,9 +83,9 @@ class Game {
         if(currentScore === 0){
             this.lose();     
         }
-        if(this.background.dx === -1202){
-            this.win();
-               
+        console.log(speed + ' speed')
+        if(this.background.dx < -1155 && this.background.dx > -1210){
+            this.win();     
         }
         frame += 1;
         this.draw();

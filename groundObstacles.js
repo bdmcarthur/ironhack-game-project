@@ -30,21 +30,19 @@ class GroundObstacles {
     }
     // 
     update (arr){
-        if(frame % 50 === 0 && getRandomInt(2) ===1){   
-
-          if(getRandomInt(2) === 1){
+        if(frame % 40 === 0 && getRandomInt(2) ===1){   
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
             this.groundObstacles.imageTitle = 'images/rat1.png' 
             this.groundObstacles.y = 370; 
-          }
-
-          else {
-            this.groundObstacles = new GroundObstacles(this);
-            groundObstaclesArr.push(this.groundObstacles)
-            this.groundObstacles.imageTitle = 'images/trashBagSet.png' 
-          }
         }
+
+        else if(frame % 40 === 0 && getRandomInt(2) ===1) {
+          this.groundObstacles = new GroundObstacles(this);
+          groundObstaclesArr.push(this.groundObstacles)
+          this.groundObstacles.imageTitle = 'images/trashBagSet.png' 
+        }
+        
         
         for(let item of groundObstaclesArr){  
           if(frame % 50 === 0){

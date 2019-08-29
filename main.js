@@ -5,20 +5,18 @@ var height = canvas.height;
 const game = new Game(canvas);
 const startButton = document.getElementById("start-button")
 const levelButton = document.getElementById("level-button")
+const gameoverButton = document.getElementById("gameover-button")
 const introDiv = document.getElementById("game-intro")
 const levelDiv = document.getElementById("level")
+const gameOver = document.getElementById("gameover")
+const winGame = document.getElementById("win-game")
 
-// window.addEventListener('load', () => {
-//   game.start();
-//   });
-
-
-  startButton.onclick = function() {
+  startButton.addEventListener('click',() => {
     introDiv.classList.add('hide')
     game.start();
-  };
+  });  
 
- levelButton.onclick = function() {
+  levelButton.addEventListener('click',() => {
     levelDiv.style.display = "none";
     game.resetLevel()
     level += 1;
@@ -26,5 +24,14 @@ const levelDiv = document.getElementById("level")
     speed = 4 + accel
     gameBeingPlayed = true;
     game.loop();
-  };
+  });  
 
+  gameoverButton.addEventListener('click',() => {
+    gameover.style.display = "none";
+    game.resetLevel()
+    level = 1;
+    accel = 1;
+    speed = 4; 
+    gameBeingPlayed = true; 
+    game.loop();
+  });  
