@@ -4,23 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-
-  </script>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
-    <div class="game-intro">
-        
-        <br>
-        <button id="start-button">StartGame</button>
-        <p>Use the left and right arrow to control the car!</p>
 
-      </div>
+    <div id="game-intro">
+        <div class='intro'>
+          <div class='game-play'> 
+            <img src='images/cloud.png'>
+          </div>
+          <div class='directions'>
+            <p>Use your up arrow to jump over the obstacles as you try to make it to Happy Hour in New York on trash day!</p>
+          </div>
+          
+        </div>
+        <button id="start-button">Play!</button>
+    </div>
+
     <div id='canvas'>
         <canvas width="1000" height="500"></canvas>
     </div>
+
   <script type="text/javascript" src="score.js"></script>
   <script type="text/javascript" src="groundObstacles.js"></script>
   <script type="text/javascript" src="controls.js"></script>

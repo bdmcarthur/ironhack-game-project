@@ -1,4 +1,8 @@
-var frame = 0;
+let frame = 0;
+let level = 1;
+let accel = 0;
+let speed = 4 + accel;
+let gameBeingPlayed = true;
 class Game {
     constructor (canvas) {
         this.canvas = canvas;
@@ -7,6 +11,8 @@ class Game {
         this.groundObstacles = new GroundObstacles(this);
         this.score = new Score(this);
         this.background = new Background(this);
+        this.speed = 4;
+        this.level = 1;
         this.callbacks = {
             jump: () => this.player.jump(),
             throw: () => this.player.throw()
@@ -39,40 +45,64 @@ class Game {
         this.player.crashWith(groundObstaclesArr);
     } 
 
-    // reset () {
-    //     currentScore = 100;
-    //     frame = 0;
-    //     obstaclesArr = [];
-    // }
+    resetLevel() {
+        frame = 0;
+        currentScore = 100;  
+        groundObstaclesArr = [];
+        this.background = new Background(this);
+        this.player = new Player(this);
+        let tempSpriteCount = 0;
+        let tempDeadCount = 0;
+        let tempJumpCount = 0;   
+    }
+
+
 
     lose () {
-        this.background.speed = 0;
-        this.groundObstacles.speed = 0;
+        gameBeingPlayed = false;
+        speed = 0;
+        this.player.imageLink = 'images/sprite/Idle (14).png';
+        this.groundObstacles.imageLink = 'images/sprite/rat3.png';
+        setTimeout(() => {
+            this.resetLevel()
+            level = 1;
+            accel = 1;
+            speed = 4; 
+            gameBeingPlayed = true; 
+            this.loop();
+            }, 1000);  
     }
 
     win () {
-        this.player.x += this.player.speed;
-        this.background.speed = 0;
-        this.groundObstacles.speed = 0;    
+        gameBeingPlayed = false;
+        speed = 0;
+        this.player.imageLink = 'images/sprite/Idle (14).png';
+        this.groundObstacles.imageLink = 'images/sprite/rat3.png';
         setTimeout(() => {
-            this.player.speed = 0;
-            this.player.imageLink = 'images/sprite/Idle (14).png';
-            this.groundObstacles.imageLink = 'images/sprite/rat1.png';
-        }, 800);        
+            this.resetLevel()
+            level += 1;
+            accel += 1;
+            speed = 4 + accel
+            gameBeingPlayed = true;
+            this.loop();
+            }, 1000);   
+
     }
     
     loop () {
-        console.log(this.background.dx)
-        if(currentScore <= 0){
-            this.lose();
+        if(gameBeingPlayed === true){
+        if(currentScore === 0){
+            this.lose();     
         }
         if(this.background.dx === -1202){
             this.win();
+               
         }
         frame += 1;
         this.draw();
         this.update();
         window.requestAnimationFrame(() => this.loop());
+    }
     }
 
 }
