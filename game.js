@@ -78,14 +78,15 @@ class Game {
         speed = 0;
         this.player.imageLink = 'images/sprite/Idle (14).png';
         this.groundObstacles.imageLink = 'images/sprite/rat3.png';
-        setTimeout(() => {
-            this.resetLevel()
-            level += 1;
-            accel += 1;
-            speed = 4 + accel
-            gameBeingPlayed = true;
-            this.loop();
-            }, 1000);   
+        levelDiv.style.display = "flex";
+        // setTimeout(() => {
+        //     this.resetLevel()
+        //     level += 1;
+        //     accel += 1;
+        //     speed = 4 + accel
+        //     gameBeingPlayed = true;
+        //     this.loop();
+        //     }, 1000);   
 
     }
     

@@ -75,7 +75,7 @@ class Player {
 
     crashWith (arr) {
           for(let item of arr){
-              if(item.x === 100 && this.y === 270 && currentScore > 0){
+              if(item.x > 100 && item.x < 105 && this.y === 270 && currentScore > 0){
                 this.imageLink ='images/sprite/Dead (5).png'
                 currentScore -= 20;
               }

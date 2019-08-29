@@ -4,10 +4,6 @@ body {
     padding: 0;
 }
 
-canvas {
-   
-}
-
 #canvas {
     margin-top: 100px;
     text-align: center;
@@ -37,7 +33,7 @@ canvas {
     margin: 20px 40px -10px 20px;
 }
 
-#start-button {
+button {
     font-family: 'Fredoka One', cursive;
     font-size: .7em;
     color: #48EEEE;
@@ -64,6 +60,28 @@ p {
     width: 45%;
 }
 
-img {
+#start-cloud, #level-cloud {
     width: 475px;
+    flex: 100%;
 }
+
+#level {
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 140px;
+    right: 450px;
+    margin: 0 auto;
+}
+
+#level-button {
+    flex: 100%;
+    width: 200px;
+    height: 40px;
+    font-size: 2em;
+    margin: 20px;
+}
+

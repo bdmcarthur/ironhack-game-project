@@ -3,15 +3,28 @@ const context = canvas.getContext('2d');
 var width = canvas.width;
 var height = canvas.height;
 const game = new Game(canvas);
-const button = document.getElementById("start-button")
-const intro = document.getElementById("game-intro")
+const startButton = document.getElementById("start-button")
+const levelButton = document.getElementById("level-button")
+const introDiv = document.getElementById("game-intro")
+const levelDiv = document.getElementById("level")
 
 // window.addEventListener('load', () => {
 //   game.start();
 //   });
 
-  button.onclick = function() {
-    intro.classList.add('hide')
+
+  startButton.onclick = function() {
+    introDiv.classList.add('hide')
     game.start();
+  };
+
+ levelButton.onclick = function() {
+    levelDiv.style.display = "none";
+    game.resetLevel()
+    level += 1;
+    accel += 1;
+    speed = 4 + accel
+    gameBeingPlayed = true;
+    game.loop();
   };
 
