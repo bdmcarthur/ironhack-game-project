@@ -6,6 +6,7 @@ const game = new Game(canvas);
 const startButton = document.getElementById("start-button")
 const levelButton = document.getElementById("level-button")
 const gameoverButton = document.getElementById("gameover-button")
+const restartButton = document.getElementById("restart-button")
 const introDiv = document.getElementById("game-intro")
 const levelDiv = document.getElementById("level")
 const gameOver = document.getElementById("gameover")
@@ -35,3 +36,13 @@ const winGame = document.getElementById("win-game")
     gameBeingPlayed = true; 
     game.loop();
   });  
+
+  restartButton.addEventListener('click',() => {
+    winGame.style.display = "none";
+    game.resetLevel()
+    level = 1;
+    accel = 1;
+    speed = 4; 
+    gameBeingPlayed = true; 
+    game.loop();
+  }); 

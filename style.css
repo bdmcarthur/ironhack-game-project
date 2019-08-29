@@ -97,20 +97,32 @@ p {
     border: none;
   }
 
-#win-game img{
-    width: 100%;
-    margin: 0 auto;
-}
+  #restart-button {
+    width: 200px;
+    height: 60px;
+    font-size: 1.25em;
+    margin: 20px;
+    color: rgb(255, 0, 149);
+  }
+
 
 #win-game {
     display: none;
-    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 1100px;
+    height: 500px;
     margin-top: 100px;
-    background-color: #00FFFA;
-    height: 100vh;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 101px;
+    right: 128px;
     margin: 0 auto;
-    
+    background-color: #00FFFF;   
+} 
+
+#win-game-cloud {
+    width: 700px;
 }
+

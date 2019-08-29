@@ -12,7 +12,7 @@ class GroundObstacles {
         this.x = width;
         this.y = 320;
         this.imageTitle = 'images/trashBagSet.png'
-        this.itemDamage = 10; 
+        this.itemDamage = 0; 
     }
 
     draw () {
@@ -20,10 +20,10 @@ class GroundObstacles {
         image.src = this.imageTitle;
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, image.width/19, image.height/21)
+            context.drawImage(image, this.x, this.y, image.width, image.height)
           } else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width/19, image.height/21)
+                context.drawImage(image, this.x, this.y, image.width, image.height)
             });  
           }       
     }

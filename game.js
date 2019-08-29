@@ -30,7 +30,6 @@ class Game {
           };
         this.control = new Control(this.callbacks);
         this.control.setKeyBindings();   
-    
     }
 
     draw () {
@@ -80,7 +79,8 @@ class Game {
 
     win () {
         if(level === 3){
-        winGame.style.display = "block";    
+        winGame.style.display = "flex";
+        gameBeingPlayed = false;    
         }
         else{
         gameBeingPlayed = false;
