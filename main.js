@@ -30,6 +30,7 @@ const winGame = document.getElementById("win-game")
   gameoverButton.addEventListener('click',() => {
     gameover.style.display = "none";
     game.resetLevel()
+    currentScore = 100;  
     level = 1;
     accel = 1;
     speed = 4; 

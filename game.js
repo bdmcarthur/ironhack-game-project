@@ -59,7 +59,6 @@ class Game {
 
     resetLevel() {
         frame = 0;
-        currentScore = 100;  
         groundObstaclesArr = [];
         groundObstaclesArr = [];
         this.background = new Background(this);
@@ -93,7 +92,8 @@ class Game {
         this.sound.play('background', { volume: 0.2 })
         if(gameBeingPlayed === true){
         if(currentScore === 0){
-            this.lose();     
+            this.lose();
+            this.player.y = 270;     
         }
 
         if(this.background.dx < -1155 && this.background.dx > -1210){

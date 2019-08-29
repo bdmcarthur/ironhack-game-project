@@ -29,14 +29,14 @@ class GroundObstacles {
     }
     // 
     update (){
-        if(frame % 40 === 0 && getRandomInt(3) ===1){   
+        if(frame % 30 === 0 && getRandomInt(3) ===1){   
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
             this.groundObstacles.imageTitle = 'images/rat1.png' 
             this.groundObstacles.y = 370; 
         }
 
-        else if(frame % 60 === 0 && getRandomInt(3) ===1) {
+        else if(frame % 50 === 0 && getRandomInt(3) ===1) {
           this.groundObstacles = new GroundObstacles(this);
           groundObstaclesArr.push(this.groundObstacles)
           this.groundObstacles.imageTitle = 'images/trashBagSet.png' 
