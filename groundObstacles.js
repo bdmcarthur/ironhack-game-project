@@ -21,13 +21,14 @@ class GroundObstacles {
 
         if (image.complete) {
             context.drawImage(image, this.x, this.y, image.width, image.height)
-          } else {
+          } 
+        else {
             image.addEventListener('load',() => {
                 context.drawImage(image, this.x, this.y, image.width, image.height)
             });  
           }       
     }
-    // 
+    
     update (){
         if(frame % 30 === 0 && getRandomInt(3) ===1){   
             this.groundObstacles = new GroundObstacles(this);
@@ -44,16 +45,8 @@ class GroundObstacles {
         
         
         for(let item of groundObstaclesArr){  
-          if(frame % 50 === 0){
-              if(item.imageTitle === 'images/rat1.png'){
-                item.imageTitle = 'images/rat2.png'
-              }
-              else if (item.imageTitle === 'images/rat2.png'){
-                item.imageTitle = 'images/rat1.png'
-              }
-          }
-
-          if(item.imageTitle === 'images/rat2.png' || item.imageTitle === 'images/rat1.png'){
+          
+          if(item.imageTitle === 'images/rat1.png'){
             item.x -= speed * 2;
             item.draw();
           }

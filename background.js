@@ -8,12 +8,16 @@ class Background {
         this.bx = 2210;
         this.cx = 2210*2;
         this.dx = 2210*3;
-        this.imageLink = 'images/cityFinal.png'
+        this.images = {
+            background: Object.assign(new Image(), { src: 'images/cityFinal.png' })
+            }
+        
     }
 
     draw () {
-        const image = new Image();
-        image.src = this.imageLink;
+        let image;;
+        image = this.images.background
+        image.src = this.images.background.src
         let imgWidth = image.width;
         let imgHeight = image.height;
 
