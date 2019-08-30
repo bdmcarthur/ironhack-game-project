@@ -31,7 +31,7 @@ class GroundObstacles {
             this.groundObstacles.y = 370; 
         }
 
-        else if(frame % 40 === 0 && Math.floor(Math.random() * Math.floor(2)) ===1) {
+        else if(frame % 50 === 0 && Math.floor(Math.random() * Math.floor(2)) ===1) {
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
             this.groundObstacles.imageTitle = 'images/trashBagSet.png' 
