@@ -18,12 +18,12 @@ body {
     top: 101px;
     right: 202px;
     width: 1000px;
-    height: 500px;
+    height: 550px;
     background-color: #87F0F0;
     background-image: url('images/cityFinalStart.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: right 50% bottom -24%;
+    background-position: right 50% bottom 0;
 }
 
 .intro {
@@ -119,7 +119,6 @@ p {
     top: 101px;
     right: 128px;
     margin: 0 auto;
-    background-color: #00FFFF;   
 } 
 
 #win-game-cloud {

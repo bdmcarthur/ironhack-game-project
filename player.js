@@ -19,6 +19,7 @@ class Player {
     draw () {
         if(currentScore <= 0){
             this.imageLink = 'images/sprite/Dead (15).png'
+            this.y = 270;
         }
         else {
             if(this.imageLink === 'images/sprite/Jump (10).png'){
@@ -71,10 +72,11 @@ class Player {
     }
 
     crashWithObstacles (arr) {
+        game.score.font = '45px Fredoka One'
         for(let item of arr){   
-            if(item.x > 50 && item.x < 100 && this.y === 270 && currentScore >= 0){
+            if(item.x > 50 && item.x < 90 && this.y === 270 && currentScore >= 0){
                 this.imageLink ='images/sprite/Dead (5).png'
-                this.sound.play('hit', { volume: 0.5 })
+                this.sound.play('hit', { volume: 0.5 });
                 currentScore -= item.itemDamage;
                 item.itemDamage = 0;        
              }

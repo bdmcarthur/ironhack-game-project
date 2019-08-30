@@ -6,7 +6,7 @@ class GroundObstacles {
         let height = canvas.height;
         this.x = width;
         this.y = 320;
-        this.imageTitle = 'images/trashBagSet.png'
+        this.imageTitle = 'images/trashBagSet.png';
         this.itemDamage = 20; 
     }
 
@@ -24,7 +24,7 @@ class GroundObstacles {
     }
     
     update (){
-        if(frame % 30 === 0 && Math.floor(Math.random() * Math.floor(3)) ===1){   
+        if(frame % 30 === 0 && Math.floor(Math.random() * Math.floor(5)) ===1){   
             this.groundObstacles = new GroundObstacles(this);
             groundObstaclesArr.push(this.groundObstacles)
             this.groundObstacles.imageTitle = 'images/rat1.png' 

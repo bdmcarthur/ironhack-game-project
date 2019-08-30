@@ -13,23 +13,21 @@ const SOUNDS = {
     donut: "sounds/donut.mp3"
   };
 
-
 class Game {
     constructor (canvas) {
         this.canvas = canvas;
         this.context = this.canvas.getContext('2d');
         this.sound = new Sound();
         this.sound.loadSounds(SOUNDS, this);
+        this.score = new Score(this);
         this.player = new Player(this);
         this.groundObstacles = new GroundObstacles(this);
         this.donut = new Donut(this);
-        this.score = new Score(this);
         this.background = new Background(this);
         this.speed = 4;
         this.level = 1;
         this.callbacks = {
             jump: () => this.player.jump(),
-            throw: () => this.player.throw()
         };
         this.control = new Control(this.callbacks);
         this.control.setKeyBindings();   
@@ -95,14 +93,13 @@ class Game {
         this.sound.play('background', { volume: 0.2 })
         if(gameBeingPlayed === true){
         if(currentScore === 0){
-            this.player.y = 270;
             this.lose();
         }
 
         if(this.background.dx < -1155 && this.background.dx > -1210){
             this.win();     
         }
-        
+
         frame += 1;
         this.draw();
         this.update();
