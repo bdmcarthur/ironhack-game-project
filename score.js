@@ -1,4 +1,3 @@
-let currentScore = 100;
 class Score {
         constructor (game) {
           this.game = game;

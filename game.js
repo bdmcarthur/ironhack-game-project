@@ -4,6 +4,9 @@ let accel = 1;
 let speed = 3 + accel;
 let gameBeingPlayed = true;
 let level1Complete = true;
+let currentScore = 100;
+let groundObstaclesArr = [];
+var donutArr = [];
 const SOUNDS = {
     background: "sounds/background.wav",
     hit: "sounds/hit.mp3",
@@ -18,7 +21,7 @@ class Game {
         this.sound = new Sound();
         this.sound.loadSounds(SOUNDS, this);
         this.player = new Player(this);
-        this.groundObstacles = new GroundObstacles(this, speed);
+        this.groundObstacles = new GroundObstacles(this);
         this.donut = new Donut(this);
         this.score = new Score(this);
         this.background = new Background(this);
@@ -27,7 +30,7 @@ class Game {
         this.callbacks = {
             jump: () => this.player.jump(),
             throw: () => this.player.throw()
-          };
+        };
         this.control = new Control(this.callbacks);
         this.control.setKeyBindings();   
     }
@@ -77,14 +80,14 @@ class Game {
 
     win () {
         if(level === 3){
-        winGame.style.display = "flex";
-        gameBeingPlayed = false;    
+            winGame.style.display = "flex";
+            gameBeingPlayed = false;    
         }
         else{
-        gameBeingPlayed = false;
-        speed = 0;
-        this.groundObstacles.imageLink = 'images/sprite/rat3.png';
-        levelDiv.style.display = "flex";
+            gameBeingPlayed = false;
+            speed = 0;
+            this.groundObstacles.imageLink = 'images/sprite/rat3.png';
+            levelDiv.style.display = "flex";
         }
     }
     
@@ -92,18 +95,19 @@ class Game {
         this.sound.play('background', { volume: 0.2 })
         if(gameBeingPlayed === true){
         if(currentScore === 0){
+            this.player.y = 270;
             this.lose();
-            this.player.y = 270;     
         }
 
         if(this.background.dx < -1155 && this.background.dx > -1210){
             this.win();     
         }
+        
         frame += 1;
         this.draw();
         this.update();
         window.requestAnimationFrame(() => this.loop());
-    }
+        }
     }
 
 }

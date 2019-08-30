@@ -1,4 +1,3 @@
-var donutArr = [];
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -20,16 +19,16 @@ class Donut {
         image.src = this.imageTitle;
 
         if (image.complete) {
-            context.drawImage(image, this.x, this.y, image.width, image.height)
-          } else {
+            context.drawImage(image, this.x, this.y)
+        }
+        else {
             image.addEventListener('load',() => {
-                context.drawImage(image, this.x, this.y, image.width, image.height)
+                context.drawImage(image, this.x, this.y)
             });  
-          }       
+        }       
     }
     
-    update (){
-        
+    update (){   
         if(frame % 300 === 0){ 
             this.donut = new Donut(this);
             donutArr.push(this.donut)   
@@ -39,5 +38,5 @@ class Donut {
             item.x -= speed;
             item.draw();   
         }
-      }
+    }
 }
