@@ -7,7 +7,7 @@ class GroundObstacles {
         this.x = width;
         this.y = 320;
         this.imageTitle = 'images/trashBagSet.png';
-        this.itemDamage = 20; 
+        this.itemDamage = 0; 
     }
 
     draw () {
